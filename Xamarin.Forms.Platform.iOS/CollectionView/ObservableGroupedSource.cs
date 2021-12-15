@@ -7,7 +7,7 @@ using UIKit;
 
 namespace Xamarin.Forms.Platform.iOS
 {
-	internal class ObservableGroupedSource : IItemsViewSource
+	internal class ObservableGroupedSource : IObservableItemsViewSource
 	{
 		readonly UICollectionView _collectionView;
 		readonly UICollectionViewController _collectionViewController;
@@ -54,6 +54,8 @@ namespace Xamarin.Forms.Platform.iOS
 			}
 		}
 
+		public bool ObserveChanges { get; set; } = true;
+
 		public NSIndexPath GetIndexForItem(object item)
 		{
 			for (int i = 0; i < _groupSource.Count; i++)
@@ -74,6 +76,11 @@ namespace Xamarin.Forms.Platform.iOS
 		public object Group(NSIndexPath indexPath)
 		{
 			return _groupSource[indexPath.Section];
+		}
+
+		public IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath)
+		{
+			return _groups[indexPath.Section];
 		}
 
 		public int ItemCountInGroup(nint group)
@@ -129,6 +136,11 @@ namespace Xamarin.Forms.Platform.iOS
 
 		void CollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
 		{
+			if (!ObserveChanges)
+			{
+				return;
+			}
+
 			if (Device.IsInvokeRequired)
 			{
 				Device.BeginInvokeOnMainThread(() => CollectionChanged(args));

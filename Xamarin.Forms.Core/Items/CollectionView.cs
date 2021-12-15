@@ -10,7 +10,7 @@ using Xamarin.Forms.Platform;
 namespace Xamarin.Forms
 {
 	[RenderWith(typeof(_CollectionViewRenderer))]
-	public class CollectionView : GroupableItemsView
+	public class CollectionView : ReorderableItemsView
 	{
 	}
 }

@@ -19,7 +19,7 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 	{
 		public event EventHandler<NotifyCollectionChangedEventArgs> CollectionChanged;
 		readonly ItemsView _cv;
-		private readonly ItemsSourceType _itemsSourceType;
+		private ItemsSourceType _itemsSourceType;
 		readonly Entry _entry;
 		int _count = 0;
 		Button button;
@@ -27,6 +27,9 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 		CarouselView carousel => _cv as CarouselView;
 
 		public int Count => _count;
+
+		public ItemsSourceType ItemsSourceType => _itemsSourceType;
+
 		public ItemsSourceGenerator(ItemsView cv, int initialItems = 1000,
 			ItemsSourceType itemsSourceType = ItemsSourceType.List)
 		{
@@ -78,6 +81,12 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 			"FlowerBuds.jpg",
 			"Legumes.jpg"
 		};
+
+		public void GenerateItems(ItemsSourceType itemsSourceType)
+		{
+			_itemsSourceType = itemsSourceType;
+			GenerateItems();
+		}
 
 		public void GenerateItems()
 		{

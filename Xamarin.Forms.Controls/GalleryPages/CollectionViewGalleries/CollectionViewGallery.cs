@@ -5,6 +5,7 @@ using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.EmptyViewGalle
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.GroupingGalleries;
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.HeaderFooterGalleries;
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.ItemSizeGalleries;
+using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.ReorderingGalleries;
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.ScrollModeGalleries;
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.SelectionGalleries;
 using Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries.SpacingGalleries;
@@ -31,6 +32,7 @@ namespace Xamarin.Forms.Controls.GalleryPages.CollectionViewGalleries
 						GalleryBuilder.NavButton("Selection Galleries", () => new SelectionGallery(), Navigation),
 						GalleryBuilder.NavButton("Propagation Galleries", () => new PropagationGallery(), Navigation),
 						GalleryBuilder.NavButton("Grouping Galleries", () => new GroupingGallery(), Navigation),
+						GalleryBuilder.NavButton("Reordering Galleries", () => new ReorderingGallery(), Navigation),
 						GalleryBuilder.NavButton("Item Spacing Galleries", () => new ItemsSpacingGallery(), Navigation),
 						GalleryBuilder.NavButton("Item Size Galleries", () => new ItemsSizeGallery(), Navigation),
 						GalleryBuilder.NavButton("Scroll Mode Galleries", () => new ScrollModeGallery(), Navigation),

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Foundation;
 using NUnit.Framework;
@@ -72,7 +73,7 @@ namespace Xamarin.Forms.Platform.iOS.UnitTests
 				"three"
 			};
 
-			var source = new ListSource(list);
+			var source = new ListSource(list as IList);
 
 			var valid = NSIndexPath.FromItemSection(2, 0);
 			var invalidItem = NSIndexPath.FromItemSection(7, 0);

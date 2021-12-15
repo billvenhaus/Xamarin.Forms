@@ -6,7 +6,7 @@ using UIKit;
 
 namespace Xamarin.Forms.Platform.iOS
 {
-	internal class ObservableItemsSource : IItemsViewSource
+	internal class ObservableItemsSource : IObservableItemsViewSource
 	{
 		readonly UICollectionViewController _collectionViewController;
 		protected readonly UICollectionView CollectionView;
@@ -67,6 +67,11 @@ namespace Xamarin.Forms.Platform.iOS
 			return null;
 		}
 
+		public IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath)
+		{
+			return null;
+		}
+
 		public NSIndexPath GetIndexForItem(object item)
 		{
 			for (int n = 0; n < Count; n++)
@@ -84,6 +89,8 @@ namespace Xamarin.Forms.Platform.iOS
 
 		public int ItemCount => Count;
 
+		public bool ObserveChanges { get; set; } = true;
+
 		public object this[NSIndexPath indexPath]
 		{
 			get
@@ -99,6 +106,11 @@ namespace Xamarin.Forms.Platform.iOS
 
 		void CollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
 		{
+			if (!ObserveChanges)
+			{
+				return;
+			}
+
 			if (Device.IsInvokeRequired)
 			{
 				Device.BeginInvokeOnMainThread(() => CollectionChanged(args));

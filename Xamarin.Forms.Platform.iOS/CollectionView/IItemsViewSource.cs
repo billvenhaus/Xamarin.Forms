@@ -9,6 +9,7 @@ namespace Xamarin.Forms.Platform.iOS
 		int GroupCount { get; }
 		object this[Foundation.NSIndexPath indexPath] { get; }
 		object Group(Foundation.NSIndexPath indexPath);
+		IItemsViewSource GroupItemsViewSource(Foundation.NSIndexPath indexPath);
 		Foundation.NSIndexPath GetIndexForItem(object item);
 	}
 }

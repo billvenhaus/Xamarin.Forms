@@ -14,7 +14,7 @@ using Xamarin.Forms.Platform.UAP;
 
 namespace Xamarin.Forms.Platform.UWP
 {
-	public class CollectionViewRenderer : GroupableItemsViewRenderer<GroupableItemsView>
+	public class CollectionViewRenderer : ReorderableItemsViewRenderer<ReorderableItemsView>
 	{
 	}
 }

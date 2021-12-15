@@ -128,6 +128,7 @@
     <Compile Include="CollectionView\IItemsViewSource.cs" />
     <Compile Include="CollectionView\IndexPathExtensions.cs" />
     <Compile Include="CollectionView\IndexPathHelpers.cs" />
+    <Compile Include="CollectionView\IObservableItemsViewSource.cs" />
     <Compile Include="CollectionView\ItemsSourceFactory.cs" />
     <Compile Include="CollectionView\ItemsViewCell.cs" />
     <Compile Include="CollectionView\ItemsViewRenderer.cs" />
@@ -136,6 +137,9 @@
     <Compile Include="CollectionView\ItemsViewController.cs" />
     <Compile Include="CollectionView\LayoutAttributesChangedEventArgs.cs" />
     <Compile Include="CollectionView\ObservableGroupedSource.cs" />
+    <Compile Include="CollectionView\ReorderableItemsViewController.cs" />
+    <Compile Include="CollectionView\ReorderableItemsViewDelegator.cs" />
+    <Compile Include="CollectionView\ReorderableItemsViewRenderer.cs" />
     <Compile Include="CollectionView\ScrollToPositionExtensions.cs" />
     <Compile Include="CollectionView\SelectableItemsViewController.cs" />
     <Compile Include="CollectionView\SelectableItemsViewDelegator.cs" />

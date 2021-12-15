@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 
 namespace Xamarin.Forms.Platform.Android
 {
-	internal class ObservableItemsSource : IItemsViewSource
+	internal class ObservableItemsSource : IItemsViewSource, IObservableItemsViewSource
 	{
 		readonly IEnumerable _itemsSource;
 		readonly ICollectionChangedNotifier _notifier;
@@ -25,6 +25,8 @@ namespace Xamarin.Forms.Platform.Android
 
 		public bool HasHeader { get; set; }
 		public bool HasFooter { get; set; }
+
+		public bool ObserveChanges { get; set; } = true;
 
 		public void Dispose()
 		{
@@ -89,6 +91,11 @@ namespace Xamarin.Forms.Platform.Android
 
 		void CollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
 		{
+			if (!ObserveChanges)
+			{
+				return;
+			}
+
 			if (Device.IsInvokeRequired)
 			{
 				Device.BeginInvokeOnMainThread(() => CollectionChanged(args));
